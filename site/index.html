@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
+  a { color: #2f4a37; text-decoration: none; }
+  a:hover { color: #1f2a24; }
+  ::selection { background: #c9d8c0; }
+</style>
+</helmet>
+<div style="font-family: 'Instrument Sans', sans-serif; color: #1f2a24; background: #f4f1ea;">
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: rgba(244,241,234,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid #e2ddd0;">
+    <div>
+      <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; line-height: 1;">Crows Nest Place</div>
+      <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #5c7d5f; margin-top: 2px;">eat, play, connect</div>
+    </div>
+    <nav style="display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 500;">
+      <a href="#home">Home</a>
+      <a href="pedestrians-first.html">Pedestrians First</a>
+      <a href="why-it-matters.html">Why It Matters</a>
+      <a href="write-to-the-minister.html">Write to the Minister</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#petition" style="padding: 9px 18px; border-radius: 999px; background: #2f4a37; color: #f4f1ea;">Sign the petition</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" style="position: relative; height: 72vh; min-height: 520px; display: flex; align-items: flex-end; overflow: hidden;">
+    <img src="uploads/Flying buses for banner.png" alt="Willoughby Road with buses and cars lifting off the street and people filling the space" style="{{ slide0Style }}">
+    <img src="uploads/Final Daytime Street Image-3dc6d5e6.png" alt="Willoughby Road as a lively pedestrian street with cafes, families and street trees" style="{{ slide1Style }}">
+    <img src="uploads/Final Cafe to Street Image-4ea11663.png" alt="View from inside a cafe onto the pedestrianised Willoughby Road" style="{{ slide2Style }}">
+    <img src="uploads/Final Evening Street Image.png" alt="Willoughby Road pedestrianised at dusk, with string lights, diners and live music" style="{{ slide3Style }}">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,28,22,0.72) 0%, rgba(20,28,22,0.15) 45%, rgba(20,28,22,0) 70%);"></div>
+    <div style="position: absolute; top: 20px; right: 24px; z-index: 3; display: flex; gap: 10px;">
+      <button onClick="{{ go0 }}" aria-label="Show slide 1" style="{{ dot0Style }}"></button>
+      <button onClick="{{ go1 }}" aria-label="Show slide 2" style="{{ dot1Style }}"></button>
+      <button onClick="{{ go2 }}" aria-label="Show slide 3" style="{{ dot2Style }}"></button>
+      <button onClick="{{ go3 }}" aria-label="Show slide 4" style="{{ dot3Style }}"></button>
+    </div>
+    <div style="position: relative; padding: 48px 32px; max-width: 720px; color: #f4f1ea;">
+      <h1 style="{{ heroTitleStyle }}">{{ heroTitleText }}</h1>
+      <p style="{{ heroSubStyle }}">{{ heroSubText }}</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="#petition" style="padding: 13px 26px; border-radius: 999px; background: #f4f1ea; color: #1f2a24; font-weight: 600; font-size: 16px;">Sign the petition</a>
+        <a href="why-it-matters.html" style="padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(244,241,234,0.55); color: #f4f1ea; font-weight: 500; font-size: 16px;">Why it matters</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section id="why" style="max-width: 1080px; margin: 0 auto; padding: 44px 32px 0;">
+    <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #5c7d5f; margin-bottom: 14px;">Why Crows Nest Place matters</div>
+    <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin: 0 0 20px; max-width: 22ch;">Crows Nest desperately needs more open space.</h2>
+    <p style="font-size: 18px; line-height: 1.6; max-width: 62ch; margin: 0 0 32px; color: #47554e;">By 2036, there will be nearly 30,000 people living in Crows Nest - St Leonards.&nbsp; That's around 20,000 more people.&nbsp; Almost 90% of residents in the North Sydney LGA will live in apartments,&nbsp; relying on shared open spaces, parks and facilities for recreation, health and wellbeing.</p>
+
+    <figure style="margin: 0 0 32px; max-width: 58%;">
+      <img src="uploads/2036 population growth.png" alt="Aerial view of Crows Nest and St Leonards in 2036 showing projected high-rise density above the harbour suburbs" style="width: 100%; border-radius: 16px; display: block;">
+      <figcaption style="font-size: 14px; color: #6a7168; margin-top: 8px; text-align: right;">Projected development for Crows Nest - St Leonards by 2036 (Image credit: North Sydney Council)</figcaption>
+    </figure>
+    <h3 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.2; margin: 48px 0 20px; color: #b4552f;">We don't have enough open space now!</h3>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <div style="background: #2f4a37; border-radius: 16px; padding: 28px; color: #f4f1ea;">
+        <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 46px; line-height: 1;">10 -16 sqm</div>
+        <div style="font-size: 14px; color: #cdd8c9; margin-top: 6px;"><strong>Average</strong> amount of open space per person in high density suburbs in Greater Sydney</div>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 28px;">
+        <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 46px; line-height: 1; color: #2f4a37;">3.49 sqm</div>
+        <div style="font-size: 14px; color: #6a7168; margin-top: 6px;"><strong>Current</strong> amount of open space per person in Crows Nest – St Leonards</div>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 28px;">
+        <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 46px; line-height: 1; color: #b4552f;">2.8 sqm&nbsp;</div>
+        <div style="font-size: 14px; color: #6a7168; margin-top: 6px;"><strong>Future</strong> amount of open space per person by 2036</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- THE SOLUTION -->
+  <section style="max-width: 1080px; margin: 0 auto; padding: 40px 32px 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+      <div>
+        <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #5c7d5f; margin-bottom: 14px;">The solution is simple</div>
+        <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.12; margin: 0 0 18px;">Make Willoughby Road&nbsp; pedestrian only&nbsp;<br><span style="font-size: 0.6em;">(from Clarke Street to Albany Street)</span></h2>
+        <p style="font-size: 18px; line-height: 1.6; margin: 0; color: #47554e; max-width: 46ch;">Transform it into Crows Nest Place — a vibrant pedestrian-only space where people can eat, play and connect.</p>
+      </div>
+      <div>
+        <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #b4552f; margin-bottom: 14px;">THE CHALLENGE IS BUSES</div>
+        <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.12; margin: 0 0 18px;">Re-route the buses!</h2>
+        <p style="font-size: 18px; line-height: 1.6; margin: 0; color: #47554e; max-width: 46ch;">Help us move buses away from Willoughby Road to a nearby location, and create a street for people.&nbsp;To do this, we need a commitment from the NSW Minister for Transport to reroute&nbsp; the Sydney Buses currently using Willoughby Road, and to help us create Crows Nest Place.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAKE IT HAPPEN -->
+  <section id="make-it-happen" style="max-width: 1080px; margin: 0 auto; padding: 40px 32px 0;">
+    <a href="pedestrians-first.html" style="display: inline-block; margin-bottom: 40px; padding: 16px 32px; border-radius: 999px; border: 2px solid #2f4a37; font-weight: 600; font-size: 19px;">Why pedestrians first</a>
+    <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #5c7d5f; margin-bottom: 14px;">Take action</div>
+    <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin: 0 0 32px;">Make it happen</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <a href="#petition" style="display: flex; flex-direction: column; gap: 10px; background: #2f4a37; border-radius: 16px; padding: 32px; color: #f4f1ea;">
+        <span style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px;">Sign the petition</span>
+        <span style="font-size: 16px; line-height: 1.55; color: #cdd8c9;">Add your name to the call to transform Willoughby Road into Crows Nest Place.</span>
+        <span style="font-weight: 600; font-size: 15px; margin-top: 6px; color: #a9c0a3;">Sign now →</span>
+      </a>
+      <a href="write-to-the-minister.html" style="display: flex; flex-direction: column; gap: 10px; background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 32px; color: #1f2a24;">
+        <span style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px;">Write to the Minister</span>
+        <span style="font-size: 16px; line-height: 1.55; color: #47554e;">Send a letter to the NSW Minister for Transport asking for buses to be re-routed and to help create Crows nest Place.</span>
+        <span style="font-weight: 600; font-size: 15px; margin-top: 6px; color: #5c7d5f;">Send the letter →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 32px 32px 72px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <figure style="margin: 0; position: relative;">
+        <img src="uploads/Best before pic W Road.png" alt="Willoughby Road today — cars, vans and buses dominate the street" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; display: block;">
+        <figcaption style="position: absolute; top: 14px; left: 14px; background: rgba(31,42,36,0.85); color: #f4f1ea; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 16px; border-radius: 999px;">Before</figcaption>
+        <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 34px 16px 14px; border-radius: 0 0 16px 16px; background: linear-gradient(to top, rgba(20,28,22,0.78), rgba(20,28,22,0)); color: #f4f1ea; font-size: 16px; font-weight: 500;">Willoughby Road today - dominated by cars</div>
+      </figure>
+      <figure style="margin: 0; position: relative;">
+        <img src="uploads/Final Daytime Street Image-3dc6d5e6.png" alt="Willoughby Road transformed into Crows Nest Place — a lively pedestrian street" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; display: block;">
+        <figcaption style="position: absolute; top: 14px; left: 14px; background: #2f4a37; color: #f4f1ea; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 16px; border-radius: 999px;">After</figcaption>
+        <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 34px 16px 14px; border-radius: 0 0 16px 16px; background: linear-gradient(to top, rgba(20,28,22,0.78), rgba(20,28,22,0)); color: #f4f1ea; font-size: 16px; font-weight: 500;">Crows Nest Place — a street for people</div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WORKSHOP -->
+  <section style="background: #eae5d8; border-top: 1px solid #e2ddd0; border-bottom: 1px solid #e2ddd0;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 72px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+      <div>
+        <div style="font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #5c7d5f; margin-bottom: 14px;">LEARN MORE</div>
+        <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1; margin: 0 0 18px;">Community information session</h2>
+        <div style="font-size: 18px; line-height: 1.6; margin: 0 0 26px; color: #47554e; max-width: 46ch;">Come to our Community Information Session:</div>
+        <div style="margin: 0 0 26px; max-width: 46ch;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+            <img src="uploads/when-icon-trimmed.png" alt="" style="width: 28px; height: 28px; display: block;">
+            <div style="font-weight: 600; color: #1f2a24;">When</div>
+          </div>
+          <div style="font-size: 16px; color: #47554e; margin-bottom: 16px;">7.00pm<br>Thursday 22 October 2026</div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+            <img src="uploads/where-icon-trimmed.png" alt="" style="width: 28px; height: 28px; display: block;">
+            <div style="font-weight: 600; color: #1f2a24;">Where</div>
+          </div>
+          <div style="font-size: 16px; color: #47554e;">Crows Nest Community Centre<br>Johnson Hall<br>Ernest Place, Crows Nest</div>
+        </div>
+        <a href="#contact" style="display: inline-block; padding: 13px 26px; border-radius: 999px; background: #2f4a37; color: #f4f1ea; font-weight: 600; font-size: 16px;">Register</a>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 26px; max-width: 380px; align-self: center;">
+        <div style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin-bottom: 18px;">What we'll cover</div>
+        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: #47554e;">
+          <div style="display: flex; gap: 12px;"><span style="color: #5c7d5f;">→</span> Why Crows Nest Place is needed</div>
+          <div style="display: flex; gap: 12px;"><span style="color: #5c7d5f;">→</span> What Crows Nest Place could look like</div>
+          <div style="display: flex; gap: 12px;"><span style="color: rgb(92, 125, 95);">→</span> What you can do to make it happen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PETITION -->
+  <section id="petition" style="max-width: 880px; margin: 0 auto; padding: 88px 32px 40px;">
+    <div style="text-align: center; margin-bottom: 36px;">
+      <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #5c7d5f; margin-bottom: 14px;">Petition</div>
+      <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 4vw, 46px); line-height: 1.1; margin: 0 0 12px;">For the pedestrianisation of Willoughby Road, Crows Nest</h2>
+    </div>
+    <div style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 20px; padding: 40px; font-size: 17px; line-height: 1.65; color: #47554e; display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px;">
+      <p style="margin: 0; font-weight: 600; color: #1f2a24;">To:</p>
+      <p style="margin: 0 0 -8px;">The Hon. John Graham MLC — Special Minister of State, Minister for Transport, Minister for the Arts, Minister for Music and the Night-time Economy</p>
+      <p style="margin: 0;">The Hon. Jenny Atkinson MP — Minister for Roads, Minister for Regional Transport</p>
+      <p style="margin: 0;">We, the undersigned residents, workers and supporters of Crows Nest, call on the NSW Government to reroute bus services away from Willoughby Road to a nearby alternative location, so that Willoughby Road between Clarke Street and Albany Street can be transformed into a pedestrian-only precinct — Crows Nest Place.</p>
+      <p style="margin: 0; font-weight: 600; color: #1f2a24;">We ask the NSW Government to work with North Sydney Council and the community to:</p>
+      <ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <li><strong style="color: rgb(47, 74, 55);">Reroute bus services</strong> from Willoughby Road to a nearby location that continues to provide efficient public transport access.</li>
+        <li><strong style="color: rgb(47, 74, 55);">Make Willoughby Road</strong>, between Clarke Street and Albany Street, pedestrian-only.</li>
+        <li><strong style="color: rgb(47, 74, 55);">Support the creation of Crows Nest Place</strong> — a vibrant public space with trees, seating, outdoor dining and room for community events, making the most of the new Metro station.</li>
+      </ul>
+      <p style="margin: 0; font-weight: 600; color: #1f2a24;">Why this is needed:</p>
+      <ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <li>Crows Nest is one of Sydney's fastest-growing centres, yet it has very little public open space. With thousands of new residents and visitors arriving with the Sydney Metro, our community urgently needs a place to gather, relax and connect.</li>
+        <li>Investigation of the proposal is already included in North Sydney Council's Delivery Plan (2026/29) with a study for the closure, budgeted this financial year (2026/27).</li>
+        <li>If approved, it would create approximately 4,300 sqm of new active public space along Willoughby Road — complementing Ernest Place and the new Hume Park (Stage 1, and Stage 2 due for completion in 2027/28) — bringing the total activated public space in the precinct to approximately 11,300 sqm.</li>
+        <li>Rerouting buses to a nearby location would preserve efficient public transport access for the area while removing through-traffic from the heart of the precinct.</li>
+      </ul>
+      <p style="margin: 0; font-weight: 600; color: #1f2a24;">We urge the Ministers to support the creation of Crows Nest Place.</p>
+    </div>
+    <form onsubmit="{{ onSubmit }}" style="max-width: 640px; margin: 0 auto; background: #ffffff; border: 1px solid #e6e0d2; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+      <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 24px; color: #1f2a24; text-align: center;">Sign the petition</div>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        Full name <span style="color: #b4552f;">*</span>
+        <input required="" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        Suburb <span style="color: #b4552f;">*</span>
+        <input required="" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        Email or phone <span style="color: #b4552f;">*</span>
+        <input required="" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        Comments (optional)
+        <textarea rows="3" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2; resize: vertical;"></textarea>
+      </label>
+      <button type="submit" style="margin-top: 6px; padding: 14px; border: none; border-radius: 999px; background: #2f4a37; color: #f4f1ea; font-weight: 600; font-size: 16px; font-family: inherit; cursor: pointer;">{{ submitLabel }}</button>
+      <div style="font-size: 13px; color: #8a917f; text-align: center;">We'll only use your details for the Crows Nest Place campaign.</div>
+    </form>
+  </section>
+
+  <!-- UPDATES -->
+  <section style="background: #eae5d8; border-top: 1px solid #e2ddd0;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 0 32px;">
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" style="background: #1f2a24; color: #e6e2d6;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px;">
+      <div>
+        <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.1; margin: 0 0 16px; color: #f4f1ea;">Contact us</h2>
+        <p style="font-size: 17px; line-height: 1.6; margin: 0; max-width: 46ch; color: #c3c9bf;">Reach out about Crows Nest Place, volunteer, or connect us with local groups supporting a safer, people-first Willoughby Road.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; font-size: 16px;">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=-33.82492353826858,151.2009028" style="color: #e6e2d6;">Willoughby Road, Crows Nest NSW 2065</a>
+        <a href="mailto:svw2709@yahoo.com.au" style="color: #e6e2d6;">svw2709@yahoo.com.au</a>
+        <div style="display: flex; gap: 18px; margin-top: 4px;">
+        </div>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #34423a;">
+      <div style="max-width: 1080px; margin: 0 auto; padding: 22px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8f978b;">
+        <span>Crows Nest Place — eat, play, connect</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <div style="display: flex; justify-content: flex-end; padding: 28px 16px 32px; background: #f4f1ea;">
+    <img src="uploads/logo-cream-bg.png" alt="Crows Nest Place — eat, play, connect" style="width: 200px; display: block;">
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { submitted: false, slide: 0 };
+
+  componentDidMount() {
+    this._timer = setInterval(() => {
+      this.setState(s => ({ slide: (s.slide + 1) % 4 }));
+    }, 5000);
+  }
+  componentWillUnmount() {
+    clearInterval(this._timer);
+  }
+  go(i) {
+    clearInterval(this._timer);
+    this.setState({ slide: i });
+    this._timer = setInterval(() => {
+      this.setState(s => ({ slide: (s.slide + 1) % 4 }));
+    }, 5000);
+  }
+
+  renderVals() {
+    const imgBase = "position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1s ease;";
+    const dotBase = "width: 11px; height: 11px; border-radius: 999px; border: 1px solid rgba(244,241,234,0.9); padding: 0; cursor: pointer; transition: background 0.3s ease;";
+    return {
+      submitLabel: this.state.submitted ? "Thank you — you're on the list" : "Add your name",
+      onSubmit: (e) => {
+        e.preventDefault();
+        this.setState({ submitted: true });
+      },
+      slide0Style: imgBase + "object-position: center top;" + "opacity:" + (this.state.slide === 0 ? 1 : 0) + ";",
+      slide1Style: imgBase + "opacity:" + (this.state.slide === 1 ? 1 : 0) + ";",
+      slide2Style: imgBase + "opacity:" + (this.state.slide === 2 ? 1 : 0) + ";",
+      slide3Style: imgBase + "opacity:" + (this.state.slide === 3 ? 1 : 0) + ";",
+      dot0Style: dotBase + "background:" + (this.state.slide === 0 ? "#f4f1ea" : "transparent") + ";",
+      dot1Style: dotBase + "background:" + (this.state.slide === 1 ? "#f4f1ea" : "transparent") + ";",
+      dot2Style: dotBase + "background:" + (this.state.slide === 2 ? "#f4f1ea" : "transparent") + ";",
+      dot3Style: dotBase + "background:" + (this.state.slide === 3 ? "#f4f1ea" : "transparent") + ";",
+      heroSubText: this.state.slide === 0
+        ? "Transform Willoughby Road into a street for people"
+        : "",
+      heroTitleText: this.state.slide === 1 ? "Create more open space" : this.state.slide === 3 ? "Crows Nest Place" : "A place to eat, play, and connect",
+      heroTitleStyle: "font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 4.4vw, 54px); line-height: 1.12; margin: 0 0 16px;" + (this.state.slide === 0 ? "display: none;" : ""),
+      heroSubStyle: this.state.slide === 0
+        ? "font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 4.4vw, 54px); line-height: 1.12; margin: 0 0 26px; max-width: 24ch; color: #f4f1ea;"
+        : "font-size: 19px; line-height: 1.55; margin: 0 0 26px; max-width: 52ch; color: #e6e2d6;",
+      go0: () => this.go(0),
+      go1: () => this.go(1),
+      go2: () => this.go(2),
+      go3: () => this.go(3),
+    };
+  }
+}
+</script>
+</body>
+</html>

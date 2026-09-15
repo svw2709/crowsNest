@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
+  a { color: #2f4a37; text-decoration: none; }
+  a:hover { color: #1f2a24; }
+  ::selection { background: #c9d8c0; }
+</style>
+</helmet>
+<div style="font-family: 'Instrument Sans', sans-serif; color: #1f2a24; background: #f4f1ea; min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: rgba(244,241,234,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid #e2ddd0;">
+    <a href="index.html">
+      <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; line-height: 1; color: #1f2a24;">Crows Nest Place</div>
+      <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #5c7d5f; margin-top: 2px;">eat, play, connect</div>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 500;">
+      <a href="index.html">Home</a>
+      <a href="pedestrians-first.html">Pedestrians First</a>
+      <a href="why-it-matters.html">Why It Matters</a>
+      <a href="write-to-the-minister.html" style="color: #1f2a24; border-bottom: 2px solid #5c7d5f; padding-bottom: 2px;">Write to the Minister</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#petition" style="padding: 9px 18px; border-radius: 999px; background: #2f4a37; color: #f4f1ea;">Sign the petition</a>
+    </nav>
+  </header>
+
+  <!-- INTRO -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 72px 32px 0; width: 100%;">
+    <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #5c7d5f; margin-bottom: 14px;">Write to the Minister</div>
+    <h1 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(34px, 5vw, 60px); line-height: 1.06; margin: 0 0 20px; max-width: 20ch;">Create Crows Nest Place — a street for people.</h1>
+    <p style="font-size: 19px; line-height: 1.6; max-width: 62ch; margin: 0; color: #47554e;">Please write, email or call the Minister to express your views.</p>
+  </section>
+
+  <!-- CONTACT DETAILS -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 44px 32px 0; width: 100%;">
+    <div style="background: #2f4a37; border-radius: 16px; padding: 36px; color: #f4f1ea; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div>
+        <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 24px; margin-bottom: 10px;">The Hon. John Graham MLC</div>
+        <div style="font-size: 16px; line-height: 1.6; color: #cdd8c9;">Minister for Transport<br>Minister for Roads<br>Parliament House<br>6 Macquarie Street<br>Sydney NSW 2000</div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 12px;">
+        <div style="font-size: 16px; color: #cdd8c9;">Email<br><a href="mailto:transport.minister@minister.nsw.gov.au" style="color: #f4f1ea; font-weight: 600;">transport.minister@minister.nsw.gov.au</a></div>
+        <div style="font-size: 16px; color: #cdd8c9;">Phone<br><a href="tel:0272256000" style="color: #f4f1ea; font-weight: 600;">(02) 7225 6000</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 44px 32px 88px; width: 100%; flex: 1;">
+    <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #5c7d5f; margin-bottom: 20px;">Use the content below as a starting point</div>
+    <div style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 40px; font-size: 17px; line-height: 1.65; color: #47554e; display: flex; flex-direction: column; gap: 16px;">
+      <p style="margin: 0; font-weight: 600; color: #1f2a24;">To the Hon. Minister for Transport, New South Wales,</p>
+      <p style="margin: 0;">I am writing to ask you to actively support the creation of Crows Nest Place on Willoughby Road in Crows Nest.</p>
+      <p style="margin: 0; font-weight: 600; color: #1f2a24;">We ask the NSW Government to work with North Sydney Council and the community to:</p>
+      <ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <li><strong style="color: #2f4a37;">Make Willoughby Road pedestrian only</strong> (between Clarke Street and Albany Street).</li>
+        <li><strong style="color: #2f4a37;">Reroute bus services and remove cars.</strong></li>
+        <li><strong style="color: #2f4a37;">Create Crows Nest Place</strong> — a vibrant open, public space with trees, seating, outdoor dining and room for community events, making the most of the new Metro.</li>
+      </ul>
+      <p style="margin: 0;">Crows Nest deserves a town centre designed for people — not dominated by traffic.</p>
+      <p style="margin: 0;">Crows Nest desperately needs more open space. By 2036, there will be nearly 30,000 people living in Crows Nest - St Leonard's. Almost 90% of residents in the North Sydney LGA will live in apartments, relying on shared open spaces, parks and facilities for recreation, health and wellbeing.</p>
+      <p style="margin: 0;">Willoughby Road is the high street for Wollstonecraft, St Leonards and Crows Nest.</p>
+      <p style="margin: 0; font-weight: 600; color: #1f2a24;">We urge the Minister to support the creation of Crows Nest Place.</p>
+    </div>
+    <div style="display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap;">
+      <a href="{{ downloadHref }}" download="Letter to the Minister - Crows Nest Place.txt" style="display: inline-block; padding: 14px 28px; border-radius: 999px; border: 2px solid #2f4a37; font-weight: 600; font-size: 17px;">Download the letter</a>
+      <a href="index.html#petition" style="display: inline-block; padding: 14px 28px; border-radius: 999px; background: #2f4a37; color: #f4f1ea; font-weight: 600; font-size: 17px;">Sign the petition</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #1f2a24; color: #e6e2d6;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 22px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8f978b;">
+      <span>Crows Nest Place — eat, play, connect</span>
+      <a href="index.html" style="color: #a9c0a3; font-weight: 500;">← Back to home</a>
+    </div>
+  </footer>
+
+  <div style="display: flex; justify-content: flex-end; padding: 28px 16px 32px; background: #f4f1ea;">
+    <img src="uploads/logo-cream-bg.png" alt="Crows Nest Place — eat, play, connect" style="width: 200px; display: block;">
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const letter = [
+      "To the Hon. Minister for Transport, New South Wales,",
+      "",
+      "I am writing to ask you to actively support the creation of Crows Nest Place on Willoughby Road in Crows Nest.",
+      "",
+      "We ask the NSW Government to work with North Sydney Council and the community to:",
+      "",
+      "- Make Willoughby Road pedestrian only (between Clarke Street and Albany Street).",
+      "- Reroute bus services and remove cars.",
+      "- Create Crows Nest Place - a vibrant open, public space with trees, seating, outdoor dining and room for community events, making the most of the new Metro.",
+      "",
+      "Crows Nest deserves a town centre designed for people - not dominated by traffic.",
+      "",
+      "Crows Nest desperately needs more open space. By 2036, there will be nearly 30,000 people living in Crows Nest - St Leonard's. Almost 90% of residents in the North Sydney LGA will live in apartments, relying on shared open spaces, parks and facilities for recreation, health and wellbeing.",
+      "",
+      "Willoughby Road is the high street for Wollstonecraft, St Leonards and Crows Nest.",
+      "",
+      "We urge the Minister to support the creation of Crows Nest Place.",
+      "",
+      "Yours sincerely,",
+      ""
+    ].join("\n");
+    return { downloadHref: "data:text/plain;charset=utf-8," + encodeURIComponent(letter) };
+  }
+}
+</script>
+</body>
+</html>

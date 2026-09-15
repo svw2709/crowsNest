@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#2f4a37">
+  <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="80" fill="#2f4a37"/>
+    <text x="60" y="47" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#f4f1ea">FAQ</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
+  a { color: #2f4a37; text-decoration: none; }
+  a:hover { color: #1f2a24; }
+  ::selection { background: #c9d8c0; }
+  summary { list-style: none; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+  details .faq-arrow { transition: transform 0.2s ease; }
+  details[open] .faq-arrow { transform: rotate(180deg); }
+</style>
+</helmet>
+<div style="font-family: 'Instrument Sans', sans-serif; color: #1f2a24; background: #f4f1ea; min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: rgba(244,241,234,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid #e2ddd0;">
+    <a href="index.html">
+      <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; line-height: 1; color: #1f2a24;">Crows Nest Place</div>
+      <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #5c7d5f; margin-top: 2px;">eat, play, connect</div>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 500;">
+      <a href="index.html">Home</a>
+      <a href="pedestrians-first.html">Pedestrians First</a>
+      <a href="why-it-matters.html">Why It Matters</a>
+      <a href="write-to-the-minister.html">Write to the Minister</a>
+      <a href="faq.html" style="color: #1f2a24; border-bottom: 2px solid #5c7d5f; padding-bottom: 2px;">FAQ</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#petition" style="padding: 9px 18px; border-radius: 999px; background: #2f4a37; color: #f4f1ea;">Sign the petition</a>
+    </nav>
+  </header>
+
+  <!-- INTRO -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 72px 32px 0; width: 100%;">
+    <div style="font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #5c7d5f; margin-bottom: 14px;">Frequently asked questions</div>
+    <h1 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(34px, 5vw, 60px); line-height: 1.06; margin: 0 0 20px; max-width: 20ch;">Your questions about Crows Nest Place</h1>
+    <p style="font-size: 19px; line-height: 1.6; max-width: 62ch; margin: 0; color: #47554e;">Everything you need to know about how Crows Nest Place would work — access, open space, impact on local business and council support.</p>
+  </section>
+
+  <!-- FAQ LIST -->
+  <section style="max-width: 860px; margin: 0 auto; padding: 44px 32px 40px; width: 100%; flex: 1; display: flex; flex-direction: column; gap: 18px;">
+
+    <details open="{{ expandAll }}" style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 0;">
+      <summary style="{{ summaryStyle }}">
+        <span style="{{ questionStyle }}">Would Crows Nest Place be just for pedestrians? Would any vehicles be allowed?</span>
+        <svg class="faq-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;"><path d="M6 9l6 6 6-6" stroke="#2f4a37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </summary>
+      <p style="font-size: 17px; line-height: 1.65; margin: 0; padding: 0 28px 26px; color: #47554e;">Yes. It is a mandatory requirement that emergency vehicles like ambulances, fire trucks and police vehicles are able to access a pedestrian precinct like Crows Nest Place. This can be achieved by devices such as retractable bollards. No regular vehicles or buses will be allowed.</p>
+    </details>
+
+    <details open="{{ expandAll }}" style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 0;">
+      <summary style="{{ summaryStyle }}">
+        <span style="{{ questionStyle }}">Will Crows Nest Place connect the existing open spaces in Crows Nest?</span>
+        <svg class="faq-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;"><path d="M6 9l6 6 6-6" stroke="#2f4a37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </summary>
+      <div style="padding: 0 28px 26px;">
+        <p style="font-size: 17px; line-height: 1.65; margin: 0 0 18px; color: #47554e;">Yes. It will create a walkable sequence from the Crows Nest Metro connecting Stage 2 of Hume Street Park to the Hume Street Park plaza, through to Willoughby Road and onto Ernest Place. Crows Nest Place will add more than 4,300 sqm of open space, bringing the total activated public space in the precinct to approximately 11,300 sqm.</p>
+        <sc-if value="{{ showGraphics }}" hint-placeholder-val="{{ true }}">
+        <img src="uploads/walkable-sequence.png" alt="A walkable sequence: Metro, Hume Street Park, Crows Nest Place, Ernest Place, Alexander St" style="width: 100%; border-radius: 12px; display: block; margin: 0 0 18px;">
+        <img src="uploads/precinct-map.png" alt="Map of the proposed Crows Nest Place pedestrian precinct — Willoughby Road from Clarke Street to Albany Street, linking the Metro, Hume Street Park and Ernest Place" style="width: 100%; border-radius: 12px; display: block;">
+        </sc-if>
+      </div>
+    </details>
+
+    <details open="{{ expandAll }}" style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 0;">
+      <summary style="{{ summaryStyle }}">
+        <span style="{{ questionStyle }}">Will Crows Nest Place help to underpin the night-time economy in Crows Nest? If so, how?</span>
+        <svg class="faq-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;"><path d="M6 9l6 6 6-6" stroke="#2f4a37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </summary>
+      <p style="font-size: 17px; line-height: 1.65; margin: 0; padding: 0 28px 26px; color: #47554e;">Yes. Crows Nest Place would underpin the night-time economy by enabling restaurants and cafés to:&nbsp; expand their outdoor dining; host live acoustic music and community performances;&nbsp; and stage community banquet events and local markets. It creates family-friendly evening spaces, draws more people before and after dining, invites those arriving via the nearby Metro station to linger in the precinct, and supports local businesses through foot traffic rather than vehicle throughput.</p>
+    </details>
+
+    <details open="{{ expandAll }}" style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 0;">
+      <summary style="{{ summaryStyle }}">
+        <span style="{{ questionStyle }}">Will Willoughby Road businesses be adversely affected by the loss of car spaces in Crows Nest Place?</span>
+        <svg class="faq-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;"><path d="M6 9l6 6 6-6" stroke="#2f4a37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </summary>
+      <div style="padding: 0 28px 26px;">
+        
+        <p style="font-size: 17px; line-height: 1.65; margin: 0 0 14px; color: #47554e;">No. There are currently 30 car spaces shared by 66 businesses in the strip between Clarke Street and Albany Street. Multiple studies demonstrate that pedestrianising a street typically increases foot traffic by around 30% and retail sales by at least 40% more overall in a month. That's because shoppers 'on foot' linger longer and spend more.</p><p style="font-size: 17px; line-height: 1.65; margin: 0; color: #47554e;">Shoppers who traditionally park on Willoughby Road in this strip will be able to park in the Holtermann Street Carpark, which is a very short walk to Willoughby Road. The Woolies carpark is also a short walk from this strip.</p>
+      </div>
+    </details>
+
+    <details open="{{ expandAll }}" style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 0;">
+      <summary style="{{ summaryStyle }}">
+        <span style="{{ questionStyle }}">Will businesses still be able to get deliveries? What about courier pick-ups for e.g. takeaway food?</span>
+        <svg class="faq-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;"><path d="M6 9l6 6 6-6" stroke="#2f4a37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </summary>
+      <p style="font-size: 17px; line-height: 1.65; margin: 0; padding: 0 28px 26px; color: #47554e;">Yes. All the businesses in the proposed pedestrianised strip have back lane access where deliveries can be made. Pick-ups could still be done by couriers on foot, or by vehicle or bicycle via the back lanes. North Sydney Council would need to establish commercial loading zones in these back lanes.</p>
+    </details>
+
+    <details open="{{ expandAll }}" style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 0;">
+      <summary style="{{ summaryStyle }}">
+        <span style="{{ questionStyle }}">Does North Sydney Council support the concept of pedestrianising a section of Willoughby Road?</span>
+        <svg class="faq-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;"><path d="M6 9l6 6 6-6" stroke="#2f4a37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </summary>
+      <p style="font-size: 17px; line-height: 1.65; margin: 0; padding: 0 28px 26px; color: #47554e;">Yes. The Council views open space as a priority for Crows Nest and intends to embed pedestrianisation of Willoughby Road in its master plan for Crows Nest. The Council will commence its master planning process for Crows Nest in late 2026. Investigation of the proposal is already included in North Sydney Council's Delivery Plan (2026/29) with a study for the closure budgeted this financial year (2026/27).</p>
+    </details>
+
+    <div style="display: flex; gap: 14px; margin-top: 18px; flex-wrap: wrap;">
+      <a href="index.html#petition" style="display: inline-block; padding: 14px 28px; border-radius: 999px; background: #2f4a37; color: #f4f1ea; font-weight: 600; font-size: 17px;">Sign the petition</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #1f2a24; color: #e6e2d6;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 22px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8f978b;">
+      <span>Crows Nest Place — eat, play, connect</span>
+      <a href="index.html" style="color: #a9c0a3; font-weight: 500;">← Back to home</a>
+    </div>
+  </footer>
+
+  <div style="display: flex; justify-content: flex-end; padding: 28px 16px 32px; background: #f4f1ea;">
+    <img src="uploads/logo-cream-bg.png" alt="Crows Nest Place — eat, play, connect" style="width: 200px; display: block;">
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;expandAll&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;FAQ behaviour&quot;},&quot;showGraphics&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;FAQ behaviour&quot;},&quot;compactCards&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const compact = this.props.compactCards ?? false;
+    return {
+      expandAll: this.props.expandAll ?? false,
+      showGraphics: this.props.showGraphics ?? true,
+      summaryStyle: compact
+        ? "display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 20px;"
+        : "display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 28px;",
+      questionStyle: compact
+        ? "font-family: 'Fraunces', serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #2f4a37;"
+        : "font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; line-height: 1.2; color: #2f4a37;"
+    };
+  }
+}
+</script>
+</body>
+</html>
