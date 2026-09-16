@@ -220,21 +220,25 @@
       <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 24px; color: #1f2a24; text-align: center;">Sign the petition</div>
       <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
         Full name <span style="color: #b4552f;">*</span>
-        <input required="" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+        <input required="" name="name" autocomplete="name" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
       </label>
       <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
         Suburb <span style="color: #b4552f;">*</span>
-        <input required="" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+        <input required="" name="suburb" autocomplete="address-level2" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
       </label>
       <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
         Email or phone <span style="color: #b4552f;">*</span>
-        <input required="" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+        <input required="" name="contact" autocomplete="email" type="text" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
       </label>
       <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
         Comments (optional)
-        <textarea rows="3" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2; resize: vertical;"></textarea>
+        <textarea rows="3" name="comments" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2; resize: vertical;"></textarea>
       </label>
+      <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+        <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
       <button type="submit" style="margin-top: 6px; padding: 14px; border: none; border-radius: 999px; background: #2f4a37; color: #f4f1ea; font-weight: 600; font-size: 16px; font-family: inherit; cursor: pointer;">{{ submitLabel }}</button>
+      <div style="{{ statusStyle }}">{{ statusMessage }}</div>
       <div style="font-size: 13px; color: #8a917f; text-align: center;">We'll only use your details for the Crows Nest Place campaign.</div>
     </form>
   </section>
@@ -274,7 +278,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { submitted: false, slide: 0 };
+  state = { submitted: false, slide: 0, status: "idle", message: "" };
 
   componentDidMount() {
     this._timer = setInterval(() => {
@@ -296,10 +300,58 @@ class Component extends DCLogic {
     const imgBase = "position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1s ease;";
     const dotBase = "width: 11px; height: 11px; border-radius: 999px; border: 1px solid rgba(244,241,234,0.9); padding: 0; cursor: pointer; transition: background 0.3s ease;";
     return {
-      submitLabel: this.state.submitted ? "Thank you — you're on the list" : "Add your name",
+      submitLabel:
+        this.state.status === "sending" ? "Adding your name…"
+          : this.state.status === "done" ? "Thank you — you're on the list"
+          : "Add your name",
+      statusMessage: this.state.message,
+      statusStyle:
+        "font-size: 14px; text-align: center; line-height: 1.5;"
+        + (this.state.message ? "" : "display: none;")
+        + (this.state.status === "error" ? "color: #b4552f;" : "color: #2f4a37;"),
       onSubmit: (e) => {
         e.preventDefault();
-        this.setState({ submitted: true });
+        if (this.state.status === "sending" || this.state.status === "done") return;
+        const form = e.currentTarget || e.target;
+        const val = (n) => {
+          const el = form.elements[n];
+          return el && typeof el.value === "string" ? el.value.trim() : "";
+        };
+        const payload = {
+          name: val("name"),
+          suburb: val("suburb"),
+          contact: val("contact"),
+          comments: val("comments"),
+          website: val("website"),
+        };
+        if (!payload.name || !payload.suburb || !payload.contact) {
+          this.setState({ status: "error", message: "Please fill in your name, suburb, and email or phone." });
+          return;
+        }
+        this.setState({ status: "sending", message: "" });
+        fetch("/api/sign", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        })
+          .then((res) => res.json().catch(() => ({})).then((data) => ({ ok: res.ok, data })))
+          .then(({ ok, data }) => {
+            if (!ok) throw new Error(data.error || "Sorry, something went wrong. Please try again.");
+            try { form.reset(); } catch (_) {}
+            this.setState({
+              submitted: true,
+              status: "done",
+              message: data.duplicate
+                ? "You've already signed this petition — thank you."
+                : "Thank you. Your name has been added to the petition.",
+            });
+          })
+          .catch((err) => {
+            this.setState({
+              status: "error",
+              message: err.message || "Sorry, something went wrong. Please try again.",
+            });
+          });
       },
       slide0Style: imgBase + "object-position: center top;" + "opacity:" + (this.state.slide === 0 ? 1 : 0) + ";",
       slide1Style: imgBase + "opacity:" + (this.state.slide === 1 ? 1 : 0) + ";",
