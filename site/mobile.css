@@ -1,0 +1,89 @@
+/* Mobile layout.
+ *
+ * The pages came out of Claude Design as inline styles, so there are no
+ * classes to hook onto and every rule here needs !important to win the
+ * cascade -- an author !important declaration beats an inline one.
+ * Attribute selectors on the style attribute are used where a structural
+ * selector isn't available.
+ *
+ * Desktop is untouched: everything is inside the media query.
+ */
+
+@media (max-width: 760px) {
+
+  /* Every multi-column grid collapses to one column. There are sixteen of
+     them across the site, all inline, none of which would otherwise wrap. */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Side gutters: 32px costs 17% of a 375px screen. */
+  header,
+  section,
+  footer > div {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  /* Vertical rhythm tuned for a desktop viewport reads as dead space on a
+     phone, pushing content below the fold for no benefit. */
+  section {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+  }
+
+  /* Header. The nav is 582px of links, so it has to wrap -- and a wrapped
+     nav pinned to the top would eat a sixth of the screen on every scroll,
+     so it stops being sticky here and scrolls away instead. */
+  header {
+    position: static !important;
+    flex-wrap: wrap !important;
+    row-gap: 12px !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+  }
+  header nav {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    gap: 10px 16px !important;
+    font-size: 14px !important;
+  }
+
+  /* Hero: the heading carries a max-width in ch units that overflows a
+     narrow screen, and the desktop padding crowds it further. */
+  #home {
+    height: auto !important;
+    min-height: 74vh !important;
+  }
+  #home h1,
+  #home p {
+    max-width: 100% !important;
+  }
+  #home > div[style*="max-width: 720px"] {
+    padding: 36px 18px !important;
+  }
+
+  /* The petition form and content cards carry 32-40px of inner padding. */
+  form,
+  [style*="border-radius: 20px"],
+  [style*="border-radius: 18px"],
+  [style*="border-radius: 16px"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Nothing may push the page sideways. */
+  img,
+  table,
+  iframe {
+    max-width: 100% !important;
+  }
+
+  /* The footer's bottom bar puts two items on one line with space-between;
+     at this width they collide. */
+  footer div[style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+}
