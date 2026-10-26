@@ -32,6 +32,12 @@
     padding-bottom: 52px !important;
   }
 
+  /* The petition sits directly under the homepage images; stacking both
+     paddings leaves a gap twice the usual size. */
+  #petition {
+    padding-top: 0 !important;
+  }
+
   /* Header. The nav is 582px of links, so it has to wrap -- and a wrapped
      nav pinned to the top would eat a sixth of the screen on every scroll,
      so it stops being sticky here and scrolls away instead. */
