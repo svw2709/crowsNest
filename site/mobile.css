@@ -32,8 +32,8 @@
     padding-bottom: 52px !important;
   }
 
-  /* The petition sits directly under the homepage images; stacking both
-     paddings leaves a gap twice the usual size. */
+  /* Stacking the petition's top padding on the previous section's bottom
+     padding leaves a gap twice the usual size. */
   #petition {
     padding-top: 0 !important;
   }
