@@ -65,8 +65,9 @@
   #home p {
     max-width: 100% !important;
   }
+  /* #home already gets the 18px gutter from the section rule above. */
   #home > div[style*="max-width: 720px"] {
-    padding: 36px 18px !important;
+    padding: 36px 0 !important;
   }
 
   /* The petition form and content cards carry 32-40px of inner padding. */
