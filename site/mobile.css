@@ -93,4 +93,16 @@
     gap: 8px !important;
     align-items: flex-start !important;
   }
+
+  /* The 18px pill caption over the Why It Matters market photo is wider
+     than the photo on a phone; shrink it and let it wrap inside the image. */
+  figcaption[style*="font-size: 18px"][style*="border-radius: 999px"] {
+    font-size: 14px !important;
+    padding: 6px 14px !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    width: fit-content !important;
+    max-width: calc(100% - 20px) !important;
+    border-radius: 14px !important;
+  }
 }
