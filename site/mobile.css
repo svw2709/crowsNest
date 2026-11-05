@@ -86,6 +86,12 @@
     padding-right: 0 !important;
   }
 
+  /* The development map on Why it matters is held to 65% width on desktop;
+     on a phone that leaves the map and its key too small to read. */
+  figure[style*="max-width: 65%"] {
+    max-width: 100% !important;
+  }
+
   /* Nothing may push the page sideways. */
   img,
   table,
