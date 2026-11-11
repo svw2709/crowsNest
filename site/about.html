@@ -70,7 +70,7 @@
   </section>
 
   <!-- WORKING GROUP -->
-  <section style="max-width: 1080px; margin: 0 auto; padding: 44px 32px 88px;">
+  <section style="max-width: 1080px; margin: 0 auto; padding: 44px 32px 64px;">
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
       <div style="background: #ffffff; border: 1px solid #e6e0d2; border-radius: 16px; padding: 32px;">
         <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #b4552f; font-weight: 600; margin-bottom: 20px;">Business owners</div>
@@ -94,6 +94,36 @@
     </div>
   </section>
 
+  <!-- CONTACT US -->
+  <section id="contact" style="max-width: 1080px; margin: 0 auto; padding: 0 32px 88px;">
+    <h2 style="font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.12; margin: 0 0 12px;">Contact Us</h2>
+    <p style="font-size: 18px; line-height: 1.6; max-width: 62ch; margin: 0 0 28px; color: #47554e;">Get in touch with the Crows Nest Place Working Group. Fill in your details below and we'll get back to you.</p>
+    <form onsubmit="{{ onSubmit }}" style="max-width: 640px; background: #ffffff; border: 1px solid #e6e0d2; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        <span>Name <span style="color: #b4552f;">*</span></span>
+        <input required="" name="name" autocomplete="name" type="text" maxlength="120" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        <span>Email <span style="color: #b4552f;">*</span></span>
+        <input required="" name="email" autocomplete="email" type="email" maxlength="160" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2;">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        <span>Postcode <span style="color: #b4552f;">*</span></span>
+        <input required="" name="postcode" autocomplete="postal-code" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" title="Please enter a 4-digit postcode" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2; max-width: 160px;">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #47554e;">
+        Message (optional)
+        <textarea rows="4" name="message" maxlength="3000" style="padding: 12px 14px; border: 1px solid #d8d3c4; border-radius: 10px; font-size: 16px; font-family: inherit; background: #faf8f2; resize: vertical;"></textarea>
+      </label>
+      <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+        <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <button type="submit" style="margin-top: 6px; padding: 14px; border: none; border-radius: 999px; background: #2f4a37; color: #f4f1ea; font-weight: 600; font-size: 16px; font-family: inherit; cursor: pointer;">{{ submitLabel }}</button>
+      <div role="status" style="{{ statusStyle }}">{{ statusMessage }}</div>
+      <div style="font-size: 13px; color: #8a917f; text-align: center;">We'll only use your details for the Crows Nest Place campaign.<br><a href="privacy-policy.html" style="text-decoration: underline;">Read our Privacy Policy</a></div>
+    </form>
+  </section>
+
   <!-- FOOTER -->
   <footer style="background: #1f2a24; color: #e6e2d6;">
     <div style="max-width: 1080px; margin: 0 auto; padding: 22px 32px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 13px; color: #8f978b; border-top: 1px solid #34423a;">
@@ -107,5 +137,82 @@
   </div>
 </div>
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { status: "idle", message: "" };
+
+  renderVals() {
+    return {
+      submitLabel:
+        this.state.status === "sending" ? "Sending…"
+          : this.state.status === "done" ? "Message sent — thank you"
+          : "Send",
+      statusMessage: this.state.message,
+      statusStyle:
+        "font-size: 14px; text-align: center; line-height: 1.5;"
+        + (this.state.message ? "" : "display: none;")
+        + (this.state.status === "error" ? "color: #b4552f;" : "color: #2f4a37;"),
+      onSubmit: (e) => {
+        e.preventDefault();
+        if (this.state.status === "sending" || this.state.status === "done") return;
+        const form = e.currentTarget || e.target;
+        const val = (n) => {
+          const el = form.elements[n];
+          return el && typeof el.value === "string" ? el.value.trim() : "";
+        };
+        const name = val("name"), email = val("email"), postcode = val("postcode"), message = val("message");
+        // Honeypot: hidden from people, so anything in it is a bot. Pretend it worked.
+        if (val("website")) {
+          this.setState({ status: "done", message: "Thank you. Your message has been sent." });
+          return;
+        }
+        if (!name || !email || !postcode) {
+          this.setState({ status: "error", message: "Please fill in your name, email and postcode." });
+          return;
+        }
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+          this.setState({ status: "error", message: "That email address doesn't look quite right." });
+          return;
+        }
+        if (!/^\d{4}$/.test(postcode)) {
+          this.setState({ status: "error", message: "Please enter a 4-digit postcode." });
+          return;
+        }
+        this.setState({ status: "sending", message: "" });
+        // FormSubmit (formsubmit.co) relays the form to the campaign inbox.
+        // The "email" field becomes the Reply-To, so replies go to the sender.
+        fetch("https://formsubmit.co/ajax/cnpcampaign@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            postcode,
+            message: message || "(no message)",
+            _subject: "Crows Nest Place website: message from " + name,
+            _template: "table",
+            _captcha: "false",
+          }),
+        })
+          .then((res) => res.json().catch(() => ({})).then((data) => ({ ok: res.ok, data })))
+          .then(({ ok, data }) => {
+            if (!ok || String(data.success) !== "true") {
+              throw new Error("Sorry, your message couldn't be sent. Please try again, or email us at cnpcampaign@gmail.com.");
+            }
+            try { form.reset(); } catch (_) {}
+            this.setState({ status: "done", message: "Thank you. Your message has been sent and we'll be in touch." });
+          })
+          .catch((err) => {
+            this.setState({
+              status: "error",
+              message: (err && err.message && err.message.startsWith("Sorry")) ? err.message
+                : "Sorry, your message couldn't be sent. Please try again, or email us at cnpcampaign@gmail.com.",
+            });
+          });
+      },
+    };
+  }
+}
+</script>
 </body>
 </html>
